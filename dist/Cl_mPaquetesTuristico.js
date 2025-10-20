@@ -6,6 +6,7 @@ var Cl_mPaqueteTuristico = /** @class */ (function () {
         // OJO el prof los coloco en publicos
         this._costo = 0;
         this._codigo = "";
+        // NO SE SI ESTE ATRIBUTO VA
         this._tipo = 1;
         this._costo = costo;
         this._codigo = codigo;

@@ -38,7 +38,7 @@ export default class Cl_vGeneral{
         return domElement;
     }
 
-    crearInputElement({elementName,}:{elementName:string;}): HTMLInputElement {
+    createInputElement({elementName,}:{elementName:string;}): HTMLInputElement {
         let domElementName = `${this.formName}_${elementName}`;
         let domElement = document.getElementById(domElementName) as HTMLInputElement
         if (!domElement){
@@ -49,7 +49,7 @@ export default class Cl_vGeneral{
         return domElement
     }
 
-    creaHTMLButtonElement({elementName, onclick}:{elementName: string; onclick?: ()=> void;}):HTMLElement{
+    creaHTMLButtonElement({elementName, onclick}:{elementName: string; onclick?: ()=> void;}):HTMLButtonElement{
         let domElementName = `${this._formName}_${elementName}`;
         let domElement = document.getElementById(domElementName) as HTMLButtonElement;
         if(!domElement){

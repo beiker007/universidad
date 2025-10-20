@@ -1,6 +1,6 @@
 import Cl_mPaqueteTuristico from "./Cl_mPaquetesTuristico";
 
-export class Cl_mAgenciaViajes {
+export default class Cl_mAgenciaViajes {
   private _acumPrecioViajes: number = 0;
   private _contPaquetes: number = 0;
   private _contPaquetesInternacionales: number = 0;

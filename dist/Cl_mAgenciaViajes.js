@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Cl_mAgenciaViajes = void 0;
 var Cl_mAgenciaViajes = /** @class */ (function () {
     function Cl_mAgenciaViajes() {
         this._acumPrecioViajes = 0;
@@ -26,4 +25,4 @@ var Cl_mAgenciaViajes = /** @class */ (function () {
     };
     return Cl_mAgenciaViajes;
 }());
-exports.Cl_mAgenciaViajes = Cl_mAgenciaViajes;
+exports.default = Cl_mAgenciaViajes;
