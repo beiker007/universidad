@@ -9,10 +9,7 @@ var Cl_mAgenciaViajes = /** @class */ (function () {
     Cl_mAgenciaViajes.prototype.procesarPaquetesTuristicos = function (paquete) {
         this._contPaquetes++;
         this._acumPrecioViajes += paquete.pagar();
-        // 2 = paquetes internacionales
-        if (paquete._tipo === 2) {
-            this._contPaquetesInternacionales++;
-        }
+        this._contPaquetesInternacionales++;
     };
     Cl_mAgenciaViajes.prototype.totalVendido = function () {
         return this._acumPrecioViajes;

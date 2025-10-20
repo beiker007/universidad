@@ -15,12 +15,12 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Cl_vGeneral_1 = require("./Cl_vGeneral");
+var Cl_vGeneral_js_1 = require("./Cl_vGeneral.js");
 var Cl_vAgenciaViajes = /** @class */ (function (_super) {
     __extends(Cl_vAgenciaViajes, _super);
     function Cl_vAgenciaViajes() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     return Cl_vAgenciaViajes;
-}(Cl_vGeneral_1.default));
+}(Cl_vGeneral_js_1.default));
 exports.default = Cl_vAgenciaViajes;

@@ -23,7 +23,7 @@ var Cl_vPaquetesTuristicos = /** @class */ (function (_super) {
         _this.inCosto = _this.createInputElement({ elementName: "inCosto" });
         _this.inCodigo = _this.createInputElement({ elementName: "inCodigo" });
         _this.lblTipo = _this.createHTMLElement({ elementName: "lblTipo" });
-        _this.btnCancelar = _this.creaHTMLButtonElement({ elementName: "btnCancelarr",
+        _this.btCancelar = _this.creaHTMLButtonElement({ elementName: "btCancelar",
             onclick: function () {
                 var _a;
                 _this.show({ ver: false });

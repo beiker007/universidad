@@ -19,8 +19,8 @@ var Cl_mPaquetesTuristico_1 = require("./Cl_mPaquetesTuristico");
 var Cl_mNacional = /** @class */ (function (_super) {
     __extends(Cl_mNacional, _super);
     function Cl_mNacional(_a) {
-        var costo = _a.costo, codigo = _a.codigo, destino = _a.destino, tipo = _a.tipo;
-        var _this = _super.call(this, { costo: costo, codigo: codigo, tipo: tipo }) || this;
+        var costo = _a.costo, codigo = _a.codigo, destino = _a.destino;
+        var _this = _super.call(this, { costo: costo, codigo: codigo }) || this;
         _this.destino = destino;
         return _this;
     }

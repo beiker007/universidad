@@ -20,8 +20,8 @@ var Cl_mInternacional = /** @class */ (function (_super) {
     __extends(Cl_mInternacional, _super);
     // MOSCA lo hice sin ver algun ejemplo
     function Cl_mInternacional(_a) {
-        var costo = _a.costo, codigo = _a.codigo, tipo = _a.tipo;
-        return _super.call(this, { costo: costo, codigo: codigo, tipo: tipo }) || this;
+        var costo = _a.costo, codigo = _a.codigo;
+        return _super.call(this, { costo: costo, codigo: codigo }) || this;
     }
     Cl_mInternacional.prototype.descuento = function () {
         return this.costo * 0.15;

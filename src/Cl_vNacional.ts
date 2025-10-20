@@ -9,7 +9,7 @@ interface iNacional{
 export default class Cl_vNacional extends Cl_vPaquetesTuristicos{
     private divInDestino: HTMLElement;
     private inDestino: HTMLElement;
-    private btnAceptar: HTMLButtonElement;
+    private btAceptar: HTMLButtonElement;
 
     constructor(){
         //INICIALIZAR ATRIBUTOS DEL PADRE
@@ -17,9 +17,9 @@ export default class Cl_vNacional extends Cl_vPaquetesTuristicos{
         //CREAR LAS ETIQUETAS PARA EL HTML
         this.divInDestino = this.createHTMLElement({elementName:"divInDestino"});
         this.inDestino = this.createInputElement({elementName: "inDestinio"});
-        this.btnAceptar = this.creaHTMLButtonElement({elementName: "btnAceptar",
+        this.btAceptar = this.creaHTMLButtonElement({elementName: "btAceptar",
             onclick:() =>this.controlador?.procesarPaqueteTuristico({
-                     
+
             })
         });
 

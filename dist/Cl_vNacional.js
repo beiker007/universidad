@@ -19,10 +19,12 @@ var Cl_vPaquetesTuristicos_js_1 = require("./Cl_vPaquetesTuristicos.js");
 var Cl_vNacional = /** @class */ (function (_super) {
     __extends(Cl_vNacional, _super);
     function Cl_vNacional() {
+        //INICIALIZAR ATRIBUTOS DEL PADRE
         var _this = _super.call(this) || this;
+        //CREAR LAS ETIQUETAS PARA EL HTML
         _this.divInDestino = _this.createHTMLElement({ elementName: "divInDestino" });
         _this.inDestino = _this.createInputElement({ elementName: "inDestinio" });
-        _this.btnAceptar = _this.creaHTMLButtonElement({ elementName: "btnAceptar",
+        _this.btAceptar = _this.creaHTMLButtonElement({ elementName: "btAceptar",
             onclick: function () {
                 var _a;
                 return (_a = _this.controlador) === null || _a === void 0 ? void 0 : _a.procesarPaqueteTuristico({});

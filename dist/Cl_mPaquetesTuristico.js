@@ -2,15 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Cl_mPaqueteTuristico = /** @class */ (function () {
     function Cl_mPaqueteTuristico(_a) {
-        var costo = _a.costo, codigo = _a.codigo, tipo = _a.tipo;
+        var costo = _a.costo, codigo = _a.codigo;
         // OJO el prof los coloco en publicos
         this._costo = 0;
         this._codigo = "";
-        // NO SE SI ESTE ATRIBUTO VA
-        this._tipo = 1;
         this._costo = costo;
         this._codigo = codigo;
-        this._tipo = tipo;
     }
     Object.defineProperty(Cl_mPaqueteTuristico.prototype, "costo", {
         get: function () {
