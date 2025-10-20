@@ -12,12 +12,14 @@ export default class Cl_vNacional extends Cl_vPaquetesTuristicos{
     private btnAceptar: HTMLButtonElement;
 
     constructor(){
+        //INICIALIZAR ATRIBUTOS DEL PADRE
         super();
+        //CREAR LAS ETIQUETAS PARA EL HTML
         this.divInDestino = this.createHTMLElement({elementName:"divInDestino"});
         this.inDestino = this.createInputElement({elementName: "inDestinio"});
         this.btnAceptar = this.creaHTMLButtonElement({elementName: "btnAceptar",
             onclick:() =>this.controlador?.procesarPaqueteTuristico({
-                
+                     
             })
         });
 

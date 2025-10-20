@@ -10,10 +10,7 @@ export default class Cl_mAgenciaViajes {
   procesarPaquetesTuristicos(paquete: Cl_mPaqueteTuristico) {
     this._contPaquetes++;
     this._acumPrecioViajes += paquete.pagar();
-    // 2 = paquetes internacionales
-    if (paquete._tipo === 2) {
-      this._contPaquetesInternacionales++;
-    }
+    this._contPaquetesInternacionales++;
   }
   totalVendido():number{
     return this._acumPrecioViajes;

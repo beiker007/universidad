@@ -6,14 +6,12 @@ export default class Cl_mNacional extends Cl_mPaqueteTuristico {
     costo,
     codigo,
     destino,
-    tipo,
   }: {
     costo: number;
     codigo: string;
-    tipo: number;
     destino: number;
   }) {
-    super({ costo, codigo, tipo });
+    super({ costo, codigo });
     this.destino = destino;
   }
   set destino(destino: number) {

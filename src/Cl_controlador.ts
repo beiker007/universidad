@@ -2,8 +2,6 @@ import Cl_mAgenciaViajes from "./Cl_mAgenciaViajes.js";
 import Cl_mInternacional from "./Cl_mInternacional";
 import Cl_mNacional from "./Cl_mNacional";
 import Cl_mPaqueteTuristico from "./Cl_mPaquetesTuristico";
-import Cl_vPaquetesTuristicos from "./Cl_vPaquetesTuristicos";
-import Cl_vNacional from "./Cl_vNacional";
 import Cl_vAgenciaViajes from "./Cl_vAgenciaViajes.js";
 import {iInternacional} from "./Cl_vInternacional.js"
 import { iNacional } from "./Cl_vNacional";
@@ -24,5 +22,24 @@ export default class Cl_controlador{
       });
       this.modelo.procesarPaquetesTuristicos(mNacional);
       this.vista.reportarPaqueteTuristico({mPaqueteTuristico: mNacional})
+    }
+    
+    procesarPaqueteInternacional(data: iInternacional){
+      let mInternacional = new Cl_mInternacional({
+        costo: data.costo,
+        codigo: data.codigo,
+      });
+      this.modelo.procesarPaquetesTuristicos(mInternacional)
+      this.vista.reportarPaqueteTuristico({mPaqueteTuristico:mInternacional})
+    }
+
+    reportarPaqueteTuristico({mPaqueteTuristico}:{mPaqueteTuristico:Cl_mPaqueteTuristico}){
+      this.vista.reportarPaqueteTuristico({
+        dataPaqueteTuristico: mPaqueteTuristico.toJSON(),
+        totalVendido: this.modelo.totalVendido(),
+        porcPaqueteInternacionales: this.modelo.porcPaquetesInternacionales(),
+        cantPaquetesInternacionales: this.modelo.cantPaquetesInternacionales(),
+      })
+      this.vista.show();
     }
 }

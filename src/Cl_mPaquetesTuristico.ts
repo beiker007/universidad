@@ -2,13 +2,10 @@ export default class Cl_mPaqueteTuristico{
     // OJO el prof los coloco en publicos
     protected _costo: number =0
     protected _codigo: string=""
-    // NO SE SI ESTE ATRIBUTO VA
-    public _tipo: number = 1
 
-    constructor({costo, codigo, tipo}: {costo:number, codigo:string, tipo: number}){
+    constructor({costo, codigo}: {costo:number, codigo:string}){
         this._costo = costo;
         this._codigo = codigo;
-        this._tipo = tipo;
     }
 
     set costo(costo:number){

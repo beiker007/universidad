@@ -5,13 +5,11 @@ export default class Cl_mInternacional extends Cl_mPaqueteTuristico {
   constructor({
     costo,
     codigo,
-    tipo,
   }: {
     costo: number;
     codigo: string;
-    tipo: number;
   }) {
-    super({ costo, codigo, tipo });
+    super({ costo, codigo});
   }
   descuento(): number {
     return this.costo * 0.15;
