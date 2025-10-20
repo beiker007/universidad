@@ -17,7 +17,7 @@ export default class Cl_vNacional extends Cl_vPaquetesTuristicos{
         this.inDestino = this.createInputElement({elementName: "inDestinio"});
         this.btnAceptar = this.creaHTMLButtonElement({elementName: "btnAceptar",
             onclick:() =>this.controlador?.procesarPaqueteTuristico({
-
+                
             })
         });
 

@@ -16,7 +16,13 @@ export default class Cl_controlador{
       this.modelo = modelo;
       this.vista = vista; 
     }
-    procesarPaqueteTuristico(){
-      
+    procesarPaqueteNacional(data: iNacional){
+      let mNacional = new Cl_mNacional({
+        costo: data.costo,
+        codigo: data.codigo,
+        destino: data.destino,
+      });
+      this.modelo.procesarPaquetesTuristicos(mNacional);
+      this.vista.reportarPaqueteTuristico({mPaqueteTuristico: mNacional})
     }
 }
