@@ -12,11 +12,19 @@ interface iPaqueteTuristico{
     pagar: number;
 }
 export default class Cl_vAgenciaViajes extends Cl_vGeneral{
-    protected vNacional: Cl_vNacional;
-   protected vInternacional: Cl_vInternacional;
-   private dataPaqueteTuristico: HTMLElement;
-   private lblTotalVendido: HTMLElement;
-   private lblPaquetesInternacionales: HTMLElement;
-   private lblPorcPaqInternacionales: HTMLElement;
-   private btAgregarNacional: 
+    protected _vNacional: Cl_vNacional;
+    protected _vInternacional: Cl_vInternacional;
+    private dataPaqueteTuristico: HTMLElement;
+    private lblTotalVendido: HTMLElement;
+    private lblPaquetesInternacionales: HTMLElement;
+    private lblPorcPaqInternacionales: HTMLElement;
+    private btAgregarNacional: HTMLElement;
+    private btAgregarInternacional: HTMLElement;
+
+    constructor(){
+        super({formName:"mainForm"});
+        this._vNacional = new Cl_vNacional();
+        this._vInternacional= new Cl_vInternacional();
+        this.
+    }
 }
