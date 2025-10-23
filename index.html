@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Préstame 2</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>PRESTAME 2</h2>
+
+  <section id="prestamoForm" hidden>
+    <h3 style="width: 250px;">Banco <span id="prestamoForm_lblTipo"></span></h3>
+    <label>Cédula:
+      <input type="number" id="prestamoForm_inCedula"> </input>
+    </label>
+    <label>Estado Civil:
+      <input type="text" id="prestamoForm_inEdoCivil"></input>
+    </label>
+    <div id="prestamoForm_divInModelo">
+      <label>Modelo:
+        <input type="text" id="prestamoForm_inModelo"></input>
+      </label>
+    </div>
+    <div id="prestamoForm_divInMontoSolicitado"></input>
+      <label>Monto solicitado:
+        <input type="number" id="prestamoForm_inMontoSolicitado" />
+      </label>
+    </div>
+    <div>
+      <button id="prestamoForm_btAceptar">Aceptar</button>
+      <button id="prestamoForm_btCancelar">Cancelar</button>
+    </div>
+  </section>
+
+  <section id="mainForm">
+    <h3>Préstamos procesados</h3>
+    <table>
+  <thead>
+    <tr>
+      <th>Cédula</th>
+      <th>Estado Civil</th>
+      <th>Monto Solicitado</th>
+      <th>% Intereses</th>
+      <th>Intereses</th>
+      <th>Monto Final</th>
+      <th>Modelo</th>
+    </tr>
+  </thead>
+  <tbody id="mainForm_dataPrestamo"></tbody>
+</table>
+
+
+    <div class="divBotones">
+      <button id="mainForm_btAgregarVivienda">Préstamo vivienda</button>
+      <button id="mainForm_btAgregarVehiculo">Préstamo vehículo</button>
+    </div>
+
+    <h3>Información del préstamo</h3>
+    <div class="divSalida">
+      <label>Total de préstamos: Bs.
+        <span id="mainForm_lblTotalPrestamosFinal"></span>
+      </label>
+      <label>Monto intereses: Bs.
+        <span id="mainForm_lblTotalInteresFinal"></span>
+      </label>
+      <label>Porcentaje de intereses: %
+        <span id="mainForm_lblPorcentajeIntereses"></span>
+      </label>
+    </div>
+  </section>
+
+  <script type="module">
+    import Cl_index from "./dist/Cl_index.js";
+    new Cl_index();
+  </script>
+</body>
+</html>

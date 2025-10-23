@@ -1,0 +1,110 @@
+/* Estilo general */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e6f0ff;
+  color: #003366;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Título principal */
+h2 {
+  text-align: center;
+  color: #0055aa;
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+
+/* Subtítulos de secciones */
+.tituloSeccion {
+  font-size: 1.4em;
+  color: #004080;
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+/* Secciones */
+section {
+  background-color: #ffffff;
+  border: 1px solid #cce0ff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0, 85, 170, 0.1);
+}
+
+/* Etiquetas y campos */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #99c2ff;
+  border-radius: 4px;
+  background-color: #f0f8ff;
+  margin-top: 5px;
+}
+
+/* Botones en horizontal */
+.divBotones {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+/* Tabla de préstamos */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #99c2ff;
+  padding: 10px;
+  text-align: center;
+}
+
+thead {
+  background-color: #cce5ff;
+  color: #003366;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f9ff;
+}
+
+/* Cuadro de salida */
+.divSalida {
+  background-color: #f0f8ff;
+  border: 1px solid #99c2ff;
+  border-radius: 6px;
+  padding: 15px;
+  width: 100%;
+}
+
+.divSalida label {
+  display: block;
+  margin: 10px 0;
+  font-weight: 500;
+}
