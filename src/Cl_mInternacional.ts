@@ -15,6 +15,6 @@ export default class Cl_mInternacional extends Cl_mPaqueteTuristico {
     return this.costo * 0.15;
   }
   pagar(): number {
-    return this.costo + this.descuento();
+    return this.costo - this.descuento();
   }
 }

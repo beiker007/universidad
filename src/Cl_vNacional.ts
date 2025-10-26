@@ -3,12 +3,10 @@ interface iNacional{
     costo:number;
     codigo:string;
     destino: number;
-    descuento: number;
-    pagar: number;
 }
 export default class Cl_vNacional extends Cl_vPaquetesTuristicos{
     private divInDestino: HTMLElement;
-    private inDestino: HTMLElement;
+    private inDestino: HTMLInputElement;
     private btAceptar: HTMLButtonElement;
 
     constructor(){
@@ -16,14 +14,23 @@ export default class Cl_vNacional extends Cl_vPaquetesTuristicos{
         super();
         //CREAR LAS ETIQUETAS PARA EL HTML
         this.divInDestino = this.createHTMLElement({elementName:"divInDestino"});
-        this.inDestino = this.createInputElement({elementName: "inDestinio"});
-        this.btAceptar = this.creaHTMLButtonElement({elementName: "btAceptar",
-            onclick:() =>this.controlador?.procesarPaqueteTuristico({
-
-            })
+        this.inDestino = this.createInputElement({elementName: "inDestino"});
+        this.btAceptar = this.creaHTMLButtonElement({elementName: "btAceptarNacional",
+            onclick:() => this.controlador?.procesarPaqueteNacional({
+                costo: this.costo,
+                codigo: this.codigo,
+                destino: this.destino,
+            }),
         });
-
+    }
+    get destino():number{
+        return +this.inDestino.value;
+    }
+    show({ ver = true}: { ver?: boolean} = {ver: true}) {
+        super.show({ver, nombreTipo:"Nacional"});
+        this.inDestino.value = "";
+        this.divInDestino.hidden = ver === false;
+        this.btAceptar.hidden = ver === false;
     }
 }
-
 export {iNacional};

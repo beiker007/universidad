@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Santo-Viaje</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-    <script type="module" src="dist/index.js"></script>
+    <h2>SANTO VIAJE</h2>
+    <section id="paqueteTuristicoForm" hidden>
+        <h3 style="width: 250px;">Paquete de <span id="paqueteTuristicoForm_lblTipo"></span></h3>
+        <label>Costo:
+            <input type="number" id="paqueteTuristicoForm_inCosto"></input>
+        </label>
+        <label>Codigo:
+            <input type="number" id="paqueteTuristicoForm_inCodigo"></input>
+        </label>
+        <label hidden id="paqueteTuristicoForm_divInDestino">Destino:
+            <input type="number" id="paqueteTuristicoForm_inDestino"></input>
+        </label>
+        <div>
+            <button id="paqueteTuristicoForm_btAceptarNacional" hidden>Aceptar</button>
+            <button id="paqueteTuristicoForm_btAceptarInternacional" hidden>Aceptar</button>
+            <button id="paqueteTuristicoForm_btCancelar">Cancelar</button>
+        </div>
+    </section>
+    <section id="mainForm">
+        <h3>Paquetes Turisticos Procesados</h3>
+        <table>
+            <thead>
+                <th>Costo</th>
+                <th>Codigo</th>
+                <th>Destino</th>
+                <th>Descuento</th>
+                <th>Pagar</th>
+            </thead>
+            <tbody id="mainForm_dataPaqueteTuristico"></tbody>
+        </table>
+        <div class="divBotones">
+            <button id="mainForm_btAgregarNacional">+Paquete Nacional</button>
+            <button id="mainForm_btAgregarInternacional">+Paquete Internacional</button>
+        </div>
+        <h3>Info de la Agencia de viajes</h3>
+        <div class="divSalida">
+            <label>Total vendido: 
+                <span id="mainForm_lblTotalVendido"></span>
+            </label>
+            <label>Cantidad de Paquetes Internacionales:
+                <span id="mainForm_lblCantPaquetesInternacionales"></span>
+            </label>
+            <label>Porcentaje de paquetes Internacionales:
+                <span id="mainForm_lblPorcPaqInternacionales"></span>
+            </label>
+        </div>
+    </section>
+        <script type="module">
+        import Cl_index from "./dist/Cl_index.js";
+        new Cl_index()
+    </script>
 </body>
+
 </html>

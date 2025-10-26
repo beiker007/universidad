@@ -1,25 +1,27 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var Cl_mAgenciaViajes = /** @class */ (function () {
-    function Cl_mAgenciaViajes() {
+import Cl_mInternacional from "./Cl_mInternacional.js";
+export default class Cl_mAgenciaViajes {
+    constructor() {
         this._acumPrecioViajes = 0;
         this._contPaquetes = 0;
         this._contPaquetesInternacionales = 0;
     }
-    Cl_mAgenciaViajes.prototype.procesarPaquetesTuristicos = function (paquete) {
+    procesarPaquetesTuristicos(paquete) {
         this._contPaquetes++;
         this._acumPrecioViajes += paquete.pagar();
-        this._contPaquetesInternacionales++;
-    };
-    Cl_mAgenciaViajes.prototype.totalVendido = function () {
+        // Contar solo si es paquete internacional
+        if (paquete instanceof Cl_mInternacional) {
+            this._contPaquetesInternacionales++;
+        }
+    }
+    totalVendido() {
         return this._acumPrecioViajes;
-    };
-    Cl_mAgenciaViajes.prototype.porcPaquetesInternacionales = function () {
-        return (this._contPaquetes / this._contPaquetesInternacionales);
-    };
-    Cl_mAgenciaViajes.prototype.cantPaquetesInternacionales = function () {
+    }
+    porcPaquetesInternacionales() {
+        if (this._contPaquetes === 0)
+            return 0;
+        return (this._contPaquetesInternacionales / this._contPaquetes) * 100;
+    }
+    cantPaquetesInternacionales() {
         return this._contPaquetesInternacionales;
-    };
-    return Cl_mAgenciaViajes;
-}());
-exports.default = Cl_mAgenciaViajes;
+    }
+}

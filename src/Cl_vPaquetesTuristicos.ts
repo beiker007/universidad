@@ -1,4 +1,4 @@
-import Cl_vGeneral from "./Cl_vGeneral";
+import Cl_vGeneral from "./Cl_vGeneral.js";
 
 export default class Cl_vPaquetesTuristicos extends Cl_vGeneral{
     private inCosto: HTMLInputElement;

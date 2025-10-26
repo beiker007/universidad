@@ -1,4 +1,4 @@
-import Cl_mPaqueteTuristico from "./Cl_mPaquetesTuristico";
+import Cl_mPaqueteTuristico from "./Cl_mPaquetesTuristico.js";
 
 export default class Cl_mNacional extends Cl_mPaqueteTuristico {
   private _destino: number;
@@ -27,7 +27,15 @@ export default class Cl_mNacional extends Cl_mPaqueteTuristico {
     } else return 0;
   }
   //suma el descuento mas el costo
+  // pagar = costo menos descuento
   pagar(): number {
-    return this.costo + this.descuento();
+    return this.costo - this.descuento();
+  }
+
+toJSON() {
+    return {
+      ...super.toJSON(),
+      destino: this.destino,
+    };
   }
 }

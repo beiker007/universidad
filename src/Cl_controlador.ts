@@ -1,16 +1,16 @@
 import Cl_mAgenciaViajes from "./Cl_mAgenciaViajes.js";
-import Cl_mInternacional from "./Cl_mInternacional";
-import Cl_mNacional from "./Cl_mNacional";
-import Cl_mPaqueteTuristico from "./Cl_mPaquetesTuristico";
+import Cl_mInternacional from "./Cl_mInternacional.js";
+import Cl_mNacional from "./Cl_mNacional.js";
+import Cl_mPaqueteTuristico from "./Cl_mPaquetesTuristico.js";
 import Cl_vAgenciaViajes from "./Cl_vAgenciaViajes.js";
 import {iInternacional} from "./Cl_vInternacional.js"
-import { iNacional } from "./Cl_vNacional";
+import { iNacional } from "./Cl_vNacional.js";
 
 export default class Cl_controlador{
     public modelo: Cl_mAgenciaViajes;
     public vista: Cl_vAgenciaViajes;
 
-    constructor({modelo,vista}:{modelo:Cl_mAgenciaViajes, vista:Cl_vAgenciaViajes}){
+    constructor(modelo: Cl_mAgenciaViajes, vista: Cl_vAgenciaViajes){
       this.modelo = modelo;
       this.vista = vista; 
     }
@@ -21,7 +21,7 @@ export default class Cl_controlador{
         destino: data.destino,
       });
       this.modelo.procesarPaquetesTuristicos(mNacional);
-      this.vista.reportarPaqueteTuristico({mPaqueteTuristico: mNacional})
+      this.reportarPaqueteTuristico({mPaqueteTuristico: mNacional})
     }
     
     procesarPaqueteInternacional(data: iInternacional){
@@ -30,14 +30,14 @@ export default class Cl_controlador{
         codigo: data.codigo,
       });
       this.modelo.procesarPaquetesTuristicos(mInternacional)
-      this.vista.reportarPaqueteTuristico({mPaqueteTuristico:mInternacional})
+      this.reportarPaqueteTuristico({mPaqueteTuristico:mInternacional})
     }
 
     reportarPaqueteTuristico({mPaqueteTuristico}:{mPaqueteTuristico:Cl_mPaqueteTuristico}){
       this.vista.reportarPaqueteTuristico({
         dataPaqueteTuristico: mPaqueteTuristico.toJSON(),
         totalVendido: this.modelo.totalVendido(),
-        porcPaqueteInternacionales: this.modelo.porcPaquetesInternacionales(),
+        porcPaquetesInternacionales: this.modelo.porcPaquetesInternacionales(),
         cantPaquetesInternacionales: this.modelo.cantPaquetesInternacionales(),
       })
       this.vista.show();

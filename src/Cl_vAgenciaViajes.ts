@@ -12,8 +12,8 @@ interface iPaqueteTuristico{
     pagar: number;
 }
 export default class Cl_vAgenciaViajes extends Cl_vGeneral{
-    protected _vNacional: Cl_vNacional;
-    protected _vInternacional: Cl_vInternacional;
+    private _vNacional: Cl_vNacional;
+    private _vInternacional: Cl_vInternacional;
     private dataPaqueteTuristico: HTMLElement;
     private lblTotalVendido: HTMLElement;
     private lblCantPaquetesInternacionales: HTMLElement;
@@ -70,11 +70,13 @@ export default class Cl_vAgenciaViajes extends Cl_vGeneral{
             cantPaquetesInternacionales: number;
     }): void{
         this.dataPaqueteTuristico.innerHTML += `
-        <td class="colNumber">${`$ ${dataPaqueteTuristico.costo.toFixed(2)}`}</td>
-        <td class="colNumber">${dataPaqueteTuristico.codigo}</td>
-        <td class="colNumber">${dataPaqueteTuristico.destino ? dataPaqueteTuristico.destino:"--"}</td>
-        <td class="colCurrency">${`$${dataPaqueteTuristico.descuento?.toFixed(2) ? dataPaqueteTuristico.descuento: "--"}`}</td>
-        <td class="colCurrency">${`$ ${dataPaqueteTuristico.pagar.toFixed(2)}`}</td>
+        <tr>
+          <td class="colNumber">$ ${dataPaqueteTuristico.costo.toFixed(2)}</td>
+          <td class="colNumber">${dataPaqueteTuristico.codigo}</td>
+          <td class="colNumber">${dataPaqueteTuristico.destino ? dataPaqueteTuristico.destino : "--"}</td>
+          <td class="colCurrency">${typeof dataPaqueteTuristico.descuento === 'number' ? `$ ${dataPaqueteTuristico.descuento.toFixed(2)}` : "--"}</td>
+          <td class="colCurrency">${`$ ${dataPaqueteTuristico.pagar.toFixed(2)}`}</td>
+        </tr>
     `;
     this.lblTotalVendido.innerHTML = totalVendido.toFixed(2);
     this.lblPorcPaqInternacionales.innerHTML = porcPaquetesInternacionales.toFixed(2);

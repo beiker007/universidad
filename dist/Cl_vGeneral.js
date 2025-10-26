@@ -1,81 +1,68 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var Cl_vGeneral = /** @class */ (function () {
-    function Cl_vGeneral(_a) {
-        var formName = _a.formName;
+export default class Cl_vGeneral {
+    constructor({ formName }) {
+        this._formName = "";
+        this._vista = null;
+        this._controlador = null;
         this._formName = formName;
         this._vista = this.createHTMLElement({
             elementName: this._formName,
             isForm: true,
         });
     }
-    Object.defineProperty(Cl_vGeneral.prototype, "formName", {
-        get: function () {
-            return this._formName;
-        },
-        set: function (formName) {
-            this._formName = formName;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(Cl_vGeneral.prototype, "vista", {
-        get: function () { return this._vista; },
-        set: function (vista) { this._vista = vista; },
-        enumerable: false,
-        configurable: true
-    });
-    ;
-    ;
-    Object.defineProperty(Cl_vGeneral.prototype, "controlador", {
-        get: function () { return this._controlador; },
-        set: function (controlador) { this._controlador = controlador; },
-        enumerable: false,
-        configurable: true
-    });
-    ;
-    ;
-    Cl_vGeneral.prototype.createHTMLElement = function (_a) {
-        var elementName = _a.elementName, _b = _a.isForm, isForm = _b === void 0 ? false : _b;
-        var domElementName = isForm
-            ? elementName : "".concat(this.formName, "_").concat(elementName);
-        var domElement = document.getElementById(domElementName);
+    set formName(formName) {
+        this._formName = formName;
+    }
+    get formName() {
+        return this._formName;
+    }
+    set vista(vista) {
+        this._vista = vista;
+    }
+    get vista() {
+        return this._vista;
+    }
+    set controlador(controlador) {
+        this._controlador = controlador;
+    }
+    get controlador() {
+        return this._controlador;
+    }
+    createHTMLElement({ elementName, isForm = false, }) {
+        let domElementName = isForm
+            ? elementName
+            : `${this.formName}_${elementName}`;
+        let domElement = document.getElementById(domElementName);
         if (!domElement) {
-            var msg = "Elemento ".concat(domElementName, " no encontrado");
+            let msg = `Elemento ${domElementName} no encontrado`;
             alert(msg);
             throw new Error(msg);
         }
         return domElement;
-    };
-    Cl_vGeneral.prototype.createInputElement = function (_a) {
-        var elementName = _a.elementName;
-        var domElementName = "".concat(this.formName, "_").concat(elementName);
-        var domElement = document.getElementById(domElementName);
+    }
+    createInputElement({ elementName, }) {
+        let domElementName = `${this.formName}_${elementName}`;
+        let domElement = document.getElementById(domElementName);
         if (!domElement) {
-            var msg = "Elemento ".concat(domElementName, " no encontrado");
+            let msg = `Elemento ${domElementName} no encontrado`;
             alert(msg);
             throw new Error(msg);
         }
         return domElement;
-    };
-    Cl_vGeneral.prototype.creaHTMLButtonElement = function (_a) {
-        var elementName = _a.elementName, onclick = _a.onclick;
-        var domElementName = "".concat(this._formName, "_").concat(elementName);
-        var domElement = document.getElementById(domElementName);
+    }
+    creaHTMLButtonElement({ elementName, onclick, }) {
+        let domElementName = `${this._formName}_${elementName}`;
+        let domElement = document.getElementById(domElementName);
         if (!domElement) {
-            var msg = "Elemento ".concat(domElement, " no encontrado");
+            let msg = `Elemento ${domElement} no encontrado`;
             alert(msg);
             throw new Error(msg);
         }
         if (onclick)
-            document.onclick = onclick;
+            domElement.onclick = onclick;
         return domElement;
-    };
-    Cl_vGeneral.prototype.show = function (_a) {
-        var _b = _a === void 0 ? { ver: true } : _a, _c = _b.ver, ver = _c === void 0 ? true : _c;
+    }
+    show({ ver = true } = { ver: true }) {
         if (this.vista)
             this.vista.style.display = ver ? "flex" : "none";
-    };
-    return Cl_vGeneral;
-}());
-exports.default = Cl_vGeneral;
+    }
+}

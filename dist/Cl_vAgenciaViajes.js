@@ -1,26 +1,63 @@
-"use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var Cl_vGeneral_js_1 = require("./Cl_vGeneral.js");
-var Cl_vAgenciaViajes = /** @class */ (function (_super) {
-    __extends(Cl_vAgenciaViajes, _super);
-    function Cl_vAgenciaViajes() {
-        return _super !== null && _super.apply(this, arguments) || this;
+import Cl_vGeneral from "./Cl_vGeneral.js";
+import Cl_vInternacional from "./Cl_vInternacional.js";
+import Cl_vNacional from "./Cl_vNacional.js";
+export default class Cl_vAgenciaViajes extends Cl_vGeneral {
+    constructor() {
+        super({ formName: "mainForm" });
+        this._vNacional = new Cl_vNacional();
+        this._vInternacional = new Cl_vInternacional();
+        this.dataPaqueteTuristico = this.createHTMLElement({ elementName: "dataPaqueteTuristico" });
+        this.lblTotalVendido = this.createHTMLElement({ elementName: "lblTotalVendido" });
+        this.lblCantPaquetesInternacionales = this.createHTMLElement({ elementName: "lblCantPaquetesInternacionales" });
+        this.lblPorcPaqInternacionales = this.createHTMLElement({ elementName: "lblPorcPaqInternacionales" });
+        this.btAgregarNacional = this.creaHTMLButtonElement({
+            elementName: "btAgregarNacional",
+            onclick: () => {
+                this.show({ ver: false });
+                this.vNacional.show();
+            },
+        });
+        this.btAgregarInternacional = this.creaHTMLButtonElement({
+            elementName: "btAgregarInternacional",
+            onclick: () => {
+                this.show({ ver: false });
+                this.vInternacional.show();
+            },
+        });
+        this.dataPaqueteTuristico.innerHTML = "";
+        this.vNacional.show({ ver: false });
+        this.vInternacional.show({ ver: false });
     }
-    return Cl_vAgenciaViajes;
-}(Cl_vGeneral_js_1.default));
-exports.default = Cl_vAgenciaViajes;
+    set controlador(controlador) {
+        super.controlador = controlador;
+        this.vNacional.controlador = controlador;
+        this.vInternacional.controlador = controlador;
+    }
+    get vNacional() {
+        return this._vNacional;
+    }
+    get vInternacional() {
+        return this._vInternacional;
+    }
+    reportarPaqueteTuristico({ dataPaqueteTuristico, totalVendido, porcPaquetesInternacionales, cantPaquetesInternacionales, }) {
+        this.dataPaqueteTuristico.innerHTML += `
+        <tr>
+          <td class="colNumber">$ ${dataPaqueteTuristico.costo.toFixed(2)}</td>
+          <td class="colNumber">${dataPaqueteTuristico.codigo}</td>
+          <td class="colNumber">${dataPaqueteTuristico.destino ? dataPaqueteTuristico.destino : "--"}</td>
+          <td class="colCurrency">${typeof dataPaqueteTuristico.descuento === 'number' ? `$ ${dataPaqueteTuristico.descuento.toFixed(2)}` : "--"}</td>
+          <td class="colCurrency">${`$ ${dataPaqueteTuristico.pagar.toFixed(2)}`}</td>
+        </tr>
+    `;
+        this.lblTotalVendido.innerHTML = totalVendido.toFixed(2);
+        this.lblPorcPaqInternacionales.innerHTML = porcPaquetesInternacionales.toFixed(2);
+        this.lblCantPaquetesInternacionales.innerHTML = cantPaquetesInternacionales.toFixed();
+    }
+    show({ ver = true } = { ver: true }) {
+        super.show({ ver });
+        if (ver) {
+            this.vNacional.show({ ver: false });
+            this.vInternacional.show({ ver: false });
+        }
+    }
+}
